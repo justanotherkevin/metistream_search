@@ -1,6 +1,8 @@
+express
+mongoose
 
+nodemon
 
-express 
-mongoose 
+## to seed DB
 
-nodemon 
+node backend/seed/user_seed.js
