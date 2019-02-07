@@ -1,0 +1,40 @@
+.navbar-wrapper {
+  background-color: $color-background-nav;
+  .navbar {
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $max-width;
+    height: 112px;
+    .logo {
+      position: relative;
+      // width: 100px;
+      background: url('./assets/imgs/logo.png') no-repeat;
+      background-size: contain;
+      height: 85px;
+      width: 161px;
+      transform: translate(34px, 15px);
+    }
+    .sub-nav {
+      width: 700px;
+      ul {
+        margin: 49px 0;
+        padding-left: 17px;
+        list-style: none;
+        li {
+          display: inline;
+          margin-left: 15px;
+          padding: 8px 25px;
+          &:nth-child(1) {
+            margin-left: 0;
+          }
+          &.active {
+            background: gray;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+    .user-info {
+    }
+  }
+}

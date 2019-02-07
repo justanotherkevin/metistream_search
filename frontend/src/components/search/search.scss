@@ -1,0 +1,225 @@
+.search-form-wrapper {
+  // text-align: center;
+  // padding: 41px;
+  // max-width: $max-width;
+  // margin: 0 auto
+  margin-top: 76px;
+  h2 {
+    // padding-top: 40px;
+    margin-top: 0;
+    margin-bottom: 38px;
+    font-size: 44px;
+    font-weight: 300;
+  }
+  form {
+    padding: 12px 30px;
+    max-width: 980px;
+    margin: 0 auto;
+    input {
+      transition: all 0.4s;
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+        background-color: $color-tag-bg;
+      }
+    }
+    input,
+    select {
+      background-color: $color-input-bg;
+    }
+    .top-search {
+      position: relative;
+      height: 66px;
+      padding-bottom: 36px;
+      display: flex;
+      input,
+      button {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 100%;
+      }
+      input {
+        border-top-left-radius: 11px;
+        border-bottom-left-radius: 11px;
+        padding-left: 33px;
+        font-size: 18px;
+      }
+      button {
+        max-width: 100px;
+        border-top-right-radius: 11px;
+        border-bottom-right-radius: 11px;
+        svg {
+          transform: translate(1px, 3px);
+        }
+        @extend %gradient-background;
+      }
+    }
+    .search-option {
+      .row {
+        display: flex;
+        height: 48px;
+        padding-bottom: 18px;
+        select,
+        .input-wrapper {
+          flex: 1;
+          height: 100%;
+          width: 100%;
+        }
+        select {
+          max-width: 239px;
+          margin-right: 25px;
+        }
+        // input {
+        //   height: 100%;
+        // }
+
+        .tag-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          background: $color-background-nav;
+          .tag {
+            height: 30px;
+            margin: 5px;
+            padding: 5px 6px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            color: #333;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+            cursor: default;
+          }
+          .tag .close {
+            font-size: 16px;
+            color: #666;
+            margin-left: 5px;
+          }
+          input {
+            padding: 5px;
+            font-size: 16px;
+            border: 0;
+            font-family: 'Rubik';
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-results-wrapper {
+  .results-header,
+  .results-body {
+    padding: 12px 30px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 26px auto 11px;
+    h5 {
+      font-size: 18px;
+      font-weight: 400;
+      // margin: 26px 0 23px 1px;
+      margin: 0;
+    }
+    .display-style {
+      span:first-child {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  .results-body {
+    // background-color: $color-input-bg;
+    &:hover {
+      .patient-details {
+        background-color: $color-tag-bg;
+      }
+    }
+    padding-top: 0;
+    text-align: left;
+    .patient-header,
+    .patient-details {
+      padding: 13px 8px;
+    }
+
+    .patient-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: $color-input-bg;
+      // padding: 13px 8px;
+      > * {
+        flex: 1;
+      }
+      .type {
+        box-sizing: border-box;
+        max-width: 94px;
+        padding: 9px 10px;
+        margin-right: 23px;
+        border-radius: 20px;
+        background-color: $color-background;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 9px;
+      }
+      .name {
+      }
+      .booked {
+        max-width: 75px;
+        text-align: center;
+      }
+    }
+
+    .patient-details {
+      background-color: $color-patient-details-bg;
+      padding-top: 20px;
+      transition: all 0.4s;
+      .cohorts-wrapper > :first-child,
+      .details-wrapper > :first-child {
+        text-transform: uppercase;
+        padding: 4px 9px 0 17px;
+        box-sizing: border-box;
+        max-width: 101px;
+        width: 100%;
+        // margin-right: 23px;
+        font-size: 13px;
+      }
+      .cohorts-wrapper {
+        display: flex;
+        align-items: center;
+        padding-bottom: 32px;
+        .cohorts-container {
+          display: flex;
+          .cohort-tag {
+            text-transform: capitalize;
+            margin-right: 10px;
+            padding: 6px 17px;
+            border-radius: 16px;
+            background-color: $color-background;
+            font-size: 12px;
+          }
+        }
+      }
+      .details-wrapper {
+        display: flex;
+        align-items: flex-start;
+        .details-container {
+          padding-top: 4px;
+          p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 19px;
+          }
+        }
+      }
+    }
+  }
+}

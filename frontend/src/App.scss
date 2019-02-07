@@ -1,0 +1,67 @@
+$color-background-nav: #41425c;
+$color-background: #2b2d42;
+$color-tag-bg: #494d68;
+$color-input-bg: #393d56;
+$color-patient-details-bg: #2f3147;
+
+$max-width: 1500px;
+
+%gradient-background {
+  background: -moz-linear-gradient(
+    269deg,
+    rgba(248, 172, 62, 1) 0%,
+    rgba(253, 135, 116, 1) 100%
+  ); /* ff3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(248, 172, 62, 1)),
+    color-stop(100%, rgba(253, 135, 116, 1))
+  ); /* safari4+,chrome */
+  background: -webkit-linear-gradient(
+    269deg,
+    rgba(248, 172, 62, 1) 0%,
+    rgba(253, 135, 116, 1) 100%
+  ); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(
+    269deg,
+    rgba(248, 172, 62, 1) 0%,
+    rgba(253, 135, 116, 1) 100%
+  ); /* opera 11.10+ */
+  background: -ms-linear-gradient(
+    269deg,
+    rgba(248, 172, 62, 1) 0%,
+    rgba(253, 135, 116, 1) 100%
+  ); /* ie10+ */
+  background: linear-gradient(
+    181deg,
+    rgba(248, 172, 62, 1) 0%,
+    rgba(253, 135, 116, 1) 100%
+  ); /* w3c */
+}
+
+.app {
+  background-color: $color-background;
+  color: white;
+  height: 100vh;
+}
+
+.flex-row-rc {
+  display: flex;
+  justify-content: center;
+}
+.flex-row-cc {
+  display: flex;
+  align-items: center;
+}
+input,
+select {
+  color: white;
+  outline: none;
+}
+// import pages
+@import './pages/search/searchPage.scss';
+// import components
+@import './components/navbar/navbar.scss';
+@import './components/search/search.scss';
