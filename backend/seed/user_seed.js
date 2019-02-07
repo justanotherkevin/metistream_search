@@ -24,17 +24,18 @@ const createUserSeeds = () => {
       email: 'test@test.test',
       password: 'test123',
       type: 'patient',
-      cohorts: [
-        cohortsSet[Math.floor(Math.random() * cohortsSet.length)],
-        cohortsSet[Math.floor(Math.random() * cohortsSet.length)],
-        cohortsSet[Math.floor(Math.random() * cohortsSet.length)],
-        cohortsSet[Math.floor(Math.random() * cohortsSet.length)],
-        cohortsSet[Math.floor(Math.random() * cohortsSet.length)],
-      ],
+      cohorts: [],
       details: `${fakeName} is ${sentenceOne} ${fakeName} is ${sentenceTwo}`,
       avatar: faker.image.avatar(),
       // bookmarked: { type: Array },
     });
+    // fillin cohorts; only if its not duple
+    for (let i = 0; i < 5; i++) {
+      let cohort = cohortsSet[Math.floor(Math.random() * cohortsSet.length)];
+      if (!newUser.cohorts.includes(cohort)) {
+        newUser.cohorts.push(cohort);
+      }
+    }
     userSeeds.push(newUser);
   }
   return userSeeds;
