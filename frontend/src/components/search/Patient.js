@@ -11,7 +11,7 @@ export default class Patient extends Component {
     );
     const details = patient.details.replace(
       regex,
-      `<span class="hl">${searchTerm}</span>`
+      `<span class="uc">${searchTerm}</span>`
     );
     return (
       <div className="results-body">

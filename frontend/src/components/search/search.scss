@@ -248,6 +248,9 @@
     .hl {
       background: $color-hl;
     }
+    .uc {
+      text-transform: uppercase;
+    }
     .patient-header {
       position: relative;
       display: flex;

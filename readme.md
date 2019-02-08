@@ -26,6 +26,11 @@ npm i server-install
 npm run dev
 ```
 
+## Challenges
+If the intent is to create as challenge this is a good problem. There are small place where the pixel is off by 1px which interesting to see how the developer would create those 1px or 2px off areas.  
+
+![Alt text](/preview-img/challenge.png)
+
 ## Meta
 
 Kevin Hu – hu.kevin.w@gmail.com
