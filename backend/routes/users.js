@@ -10,10 +10,9 @@ const User = require('../models/User');
 // @access  Public
 router.get('/search/:partname', (req, res) => {
   console.log(req.params.partname);
-  console.log(req.params.partdetails);
   User.find({
-    name: { $regex: `${req.params.partname}` },
-    details: { $regex: `${req.params.partname}` },
+    name: { $regex: `${req.params.partname}`, $options: 'i' },
+    details: { $regex: `${req.params.partname}`, $options: 'i' },
   })
     .then(users => res.json(users))
     .catch(err => res.status(404).json({ nousersfound: 'No posts found' }));

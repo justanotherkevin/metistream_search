@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Patient extends Component {
-  componentDidMount() {
-    const { patient, searchTerm } = this.props;
-    const regex = new RegExp(searchTerm, 'gi');
-    const name = patient.name.replace(
-      regex,
-      `<span class="hl">${searchTerm}</span>`
-    );
-    document.querySelector('span.name').innerHTML = name;
-  }
   render() {
     const { patient, searchTerm } = this.props;
     const regex = new RegExp(searchTerm, 'gi');

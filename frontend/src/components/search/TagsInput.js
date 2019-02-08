@@ -30,13 +30,13 @@ export default class TagsInput extends Component {
     div.setAttribute('class', 'tag');
     let newTag = `
       <span>${value}</span>
-      <span class="close">X</span>
+      <i class="close material-icons">close</i>
     `;
     div.innerHTML = newTag;
     return div;
   };
   elementClick = e => {
-    if (e.target.className === 'close') {
+    if (e.target.classList.contains('close')) {
       e.target.parentElement.remove();
     }
   };

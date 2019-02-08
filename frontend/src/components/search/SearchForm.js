@@ -4,7 +4,11 @@ import axios from 'axios';
 import debounce from '../../helpers/debounce';
 import TagsInput from './TagsInput';
 import SearchIcon from '../../assets/imgs/search-solid';
-import { alphanumeric, sanitarize } from '../../helpers/helper';
+import {
+  alphanumeric,
+  sanitarize,
+  hideOnClickOutside,
+} from '../../helpers/helper';
 
 export default class SearchForm extends Component {
   constructor(props) {
@@ -17,6 +21,7 @@ export default class SearchForm extends Component {
       matched: [],
     };
   }
+  componentDidMount() {}
   inputChange = e => {
     if (alphanumeric(e.target.value)) {
       const betterStr = sanitarize(e.target.value);

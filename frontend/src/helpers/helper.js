@@ -27,3 +27,21 @@ export function sanitarize(string) {
   const reg = /[&<>"'/]/gi;
   return string.replace(reg, match => map[match]);
 }
+export function hideOnClickOutside(element) {
+  const outsideClickListener = event => {
+    if (!element.contains(event.target) && isVisible(element)) {
+      // or use: event.target.closest(selector) === null
+      element.classList.add('hide');
+      removeClickListener();
+    }
+  };
+
+  const removeClickListener = () => {
+    document.removeEventListener('click', outsideClickListener);
+  };
+
+  document.addEventListener('click', outsideClickListener);
+  const isVisible = elem =>
+    !!elem &&
+    !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+}
