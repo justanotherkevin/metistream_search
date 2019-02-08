@@ -23,6 +23,7 @@ OS X & Linux:
 ```sh
 npm i client-install
 npm i server-install
+npm run dev
 ```
 
 ## Meta
