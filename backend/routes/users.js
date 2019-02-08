@@ -6,13 +6,14 @@ const router = express.Router();
 const User = require('../models/User');
 
 // @route   GET api/users/search/something
-// @desc    Search in user name and description
+// @desc    Search in user name and description for match
 // @access  Public
-router.get('/search/:partname/:partdetails', (req, res) => {
+router.get('/search/:partname', (req, res) => {
   console.log(req.params.partname);
+  console.log(req.params.partdetails);
   User.find({
     name: { $regex: `${req.params.partname}` },
-    details: { $regex: `${req.params.partdetails}` },
+    details: { $regex: `${req.params.partname}` },
   })
     .then(users => res.json(users))
     .catch(err => res.status(404).json({ nousersfound: 'No posts found' }));

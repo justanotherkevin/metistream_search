@@ -1,31 +1,36 @@
 .navbar-wrapper {
   background-color: $color-background-nav;
   .navbar {
-    justify-content: space-between;
     margin: 0 auto;
     max-width: $max-width;
-    height: 112px;
+    height: 111px;
     .logo {
       position: relative;
       // width: 100px;
       background: url('./assets/imgs/logo.png') no-repeat;
       background-size: contain;
-      height: 85px;
+      height: 80px;
       width: 161px;
-      transform: translate(34px, 15px);
+      margin: 0px 0 0 34px;
     }
     .sub-nav {
       width: 700px;
+      // height: 100%;
+      padding: 0 0 0 231px;
       ul {
-        margin: 49px 0;
-        padding-left: 17px;
+        // margin: 49px 0;
+        margin-top: 24px;
+        padding: 0;
         list-style: none;
         li {
           display: inline;
           margin-left: 15px;
-          padding: 8px 25px;
+          padding: 10px 28px 10px 22px;
           &:nth-child(1) {
             margin-left: 0;
+          }
+          &:last-child {
+            padding-left: 30px;
           }
           &.active {
             background: gray;
@@ -35,6 +40,37 @@
       }
     }
     .user-info {
+      margin-top: 7px;
+      padding-left: 118px;
+      .gear {
+        height: 36px;
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+        i {
+          margin: 3px 8px 0 8px;
+          font-size: 29px;
+        }
+      }
+      .name {
+        font-size: 12px;
+        padding-left: 14px;
+        position: relative;
+        padding-right: 20px;
+        i {
+          position: absolute;
+          right: 0;
+          font-size: 19px;
+          transform: rotate(0.25turn);
+          color: #81d6d0;
+        }
+      }
+      .img {
+        background: url('./assets/imgs/profile-img.png') no-repeat;
+        background-size: contain;
+        height: 55px;
+        width: 55px;
+        margin-left: 11px;
+      }
     }
   }
 }

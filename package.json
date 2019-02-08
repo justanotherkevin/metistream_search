@@ -1,0 +1,26 @@
+{
+  "name": "metistream_search",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "npm run dev --prefix backend",
+    "server-install": "npm i --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "client-install": "npm i --prefix frontend",
+    "modules-install": "concurrently \"npm run server-install\" \"npm run client-install\" ",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polymer940c/metistream_search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polymer940c/metistream_search/issues"
+  },
+  "homepage": "https://github.com/polymer940c/metistream_search#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
