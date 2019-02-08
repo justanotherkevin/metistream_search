@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchForm from '../../components/search/SearchForm';
 import SearchResults from '../../components/search/SearchResults';
+import { isObjectEmpty } from '../../helpers/helper';
+
 export default class SearchPage extends Component {
   constructor() {
     super();
     this.state = {
       patientsName: [],
       searchResults: [],
+      searchTerm: '',
     };
   }
   componentDidMount() {
@@ -51,15 +54,22 @@ export default class SearchPage extends Component {
   setSearchResults = array => {
     this.setState({ searchResults: array });
   };
+  setSearchTerm = str => {
+    this.setState({ searchTerm: str });
+  };
   render() {
     return (
       <div className="search-page-wrapper">
         <SearchForm
           patientsName={this.state.patientsName}
           setSearchResults={this.setSearchResults}
+          setSearchTerm={this.setSearchTerm}
         />
-        {this.state.searchResults && (
-          <SearchResults searchResults={this.state.searchResults} />
+        {!isObjectEmpty(this.state.searchResults) && (
+          <SearchResults
+            searchResults={this.state.searchResults}
+            searchTerm={this.state.searchTerm}
+          />
         )}
       </div>
     );

@@ -20,7 +20,7 @@ export default class Navbar extends Component {
             </span>
             <span className="name">
               Paul Murphy
-              <i class="material-icons">chevron_right</i>
+              <i className="material-icons">chevron_right</i>
             </span>
             <span className="img" />
           </div>

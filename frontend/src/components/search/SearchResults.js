@@ -9,13 +9,17 @@ export default class SearchResults extends Component {
         <div className="results-header">
           <h5>Results</h5>
           <div className="display-style">
-            <span className="grid">grid</span>
-            <span className="row">row</span>
+            <i className="grid material-icons">apps</i>
+            <i className="active row material-icons">signal_cellular_alt</i>
           </div>
         </div>
         <div className="results-patients-wrapper row">
           {this.props.searchResults.map((patient, i) => (
-            <Patient key={`${i}${patient.name}`} patient={patient} />
+            <Patient
+              key={`${i}${patient.name}`}
+              patient={patient}
+              searchTerm={this.props.searchTerm}
+            />
           ))}
         </div>
       </div>

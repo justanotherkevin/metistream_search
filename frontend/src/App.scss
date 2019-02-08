@@ -3,10 +3,18 @@ $color-background: #2b2d42;
 $color-tag-bg: #494d68;
 $color-input-bg: #393d56;
 $color-patient-details-bg: #2f3147;
+$color-arrow: #81d6d0;
+$color-orange: #fc9e52;
+$color-hl: #6f84ed;
 
 $max-width: 1500px;
 %gradient-gb-disable-btn {
-  background: linear-gradient(346deg, rgba(0,0,0,1) 0%, rgba(80,80,125,1) 35%, rgba(88,93,94,1) 100%);
+  background: linear-gradient(
+    346deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(80, 80, 125, 1) 35%,
+    rgba(88, 93, 94, 1) 100%
+  );
 }
 %gradient-background {
   background: -moz-linear-gradient(
@@ -46,7 +54,7 @@ $max-width: 1500px;
 .app {
   background-color: $color-background;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .flex-row-rc {
@@ -61,6 +69,21 @@ input,
 select {
   color: white;
   outline: none;
+}
+.swing-in-top-fwd {
+  animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+  }
 }
 // import pages
 @import './pages/search/searchPage.scss';

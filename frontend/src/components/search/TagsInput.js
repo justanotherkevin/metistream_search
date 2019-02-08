@@ -47,6 +47,10 @@ export default class TagsInput extends Component {
         ref={this.tagWrapper}
         onClick={this.elementClick}
       >
+        <div className="tag">
+          <span>Filter here</span>
+          <i className="close material-icons">close</i>
+        </div>
         <input
           ref={this.textInput}
           form="fakeForm"

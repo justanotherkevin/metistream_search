@@ -3,34 +3,32 @@
   // padding: 41px;
   // max-width: $max-width;
   // margin: 0 auto
+  padding-bottom: 38px;
   margin-top: 76px;
   h2 {
     // padding-top: 40px;
     margin-top: 0;
-    margin-bottom: 38px;
+    margin-bottom: 52px;
     font-size: 44px;
     font-weight: 300;
   }
   form {
-    padding: 12px 30px;
-    max-width: 980px;
+    padding: 0px 30px;
+    max-width: 982px;
     margin: 0 auto;
     input {
       transition: all 0.4s;
       box-sizing: border-box;
-      &:focus {
-        outline: none;
-        background-color: $color-tag-bg;
-      }
     }
     input,
-    select {
+    .user-select,
+    .tag-wrapper {
       background-color: $color-input-bg;
     }
     .top-search {
       position: relative;
-      height: 66px;
-      padding-bottom: 36px;
+      height: 65px;
+      padding-bottom: 37px;
       display: flex;
       input,
       button {
@@ -43,10 +41,19 @@
       input {
         border-top-left-radius: 11px;
         border-bottom-left-radius: 11px;
-        padding-left: 33px;
+        padding: 0 33px;
         font-size: 18px;
+        border: 1px solid $color-input-bg;
+        &:focus {
+          outline: none;
+          background-color: $color-tag-bg;
+          border: 1px solid rgba(162, 162, 162, 0.3);
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+          // inset -1px -1px 1px #fff;
+        }
       }
       button {
+        cursor: pointer;
         transition: all 0.4s;
         max-width: 100px;
         border-top-right-radius: 11px;
@@ -59,10 +66,7 @@
       button:disabled {
         opacity: 0.3;
       }
-      input[type='search']:focus ~ .suggestion {
-        display: block;
-        opacity: 1;
-      }
+
       .suggestion {
         opacity: 0;
         transition: all 0.8s;
@@ -72,11 +76,31 @@
         top: 66px;
         z-index: 1;
         text-align: left;
-        max-height: 200px;
-        overflow: scroll;
         background-color: $color-tag-bg;
+        border-radius: 4px;
+        border: 1px solid rgba(162, 162, 162, 0.3);
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+        &.hide {
+          display: none;
+        }
+        &.show {
+          display: block;
+          opacity: 1;
+        }
         ul {
+          margin: 0;
+          padding: 15px;
           list-style: none;
+          max-height: 200px;
+          overflow: scroll;
+          li {
+            padding: 4px 0;
+            &:hover {
+              cursor: pointer;
+              color: $color-arrow;
+              // background: $color-input-bg;
+            }
+          }
         }
       }
     }
@@ -84,43 +108,77 @@
       .row {
         display: flex;
         height: 48px;
-        padding-bottom: 18px;
-        select,
+        padding-bottom: 17px;
+        .user-select,
         .input-wrapper {
           flex: 1;
           height: 100%;
           width: 100%;
         }
-        select {
+        .user-select {
           max-width: 239px;
           margin-right: 25px;
+          position: relative;
+          span {
+            margin-left: 12px;
+            margin-top: 2px;
+          }
+          // overflow: hidden;
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            height: 100%;
+            width: 100%;
+            li {
+              height: 100%;
+              width: 100%;
+              outline: white;
+              border: 1px solid white;
+            }
+          }
+          i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(-20px, 50%) rotate(0.25turn);
+            color: $color-arrow;
+          }
         }
-        // input {
-        //   height: 100%;
-        // }
 
         .tag-wrapper {
           display: flex;
           flex-wrap: wrap;
           align-content: flex-start;
-          background: $color-background-nav;
+          align-items: center;
+          padding-left: 13px;
+
           .tag {
-            height: 30px;
-            margin: 5px;
-            padding: 5px 6px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            background: #eee;
+            position: relative;
+            height: 32px;
+            border-radius: 25px;
+            padding: 0 54px 0 22px;
+            margin-right: 10px;
+            // border: 1px solid #ccc;
+            background: $color-tag-bg;
             display: flex;
             align-items: center;
-            color: #333;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+            color: white;
+            // box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
             cursor: default;
+            span {
+              font-size: 10px;
+              margin-top: 2px;
+            }
           }
           .tag .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(50%);
             font-size: 16px;
             color: #666;
-            margin-left: 5px;
+            margin: 2px 13px 0 0;
           }
           input {
             padding: 5px;
@@ -138,15 +196,16 @@
 .search-results-wrapper {
   .results-header,
   .results-body {
-    padding: 12px 30px;
+    padding: 12px 30px 13px;
     max-width: 980px;
     margin: 0 auto;
   }
   .results-header {
+    padding: 7px 30px 22px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 26px auto 11px;
+    align-items: flex-end;
+    // margin: 26px auto 11px;
     h5 {
       font-size: 18px;
       font-weight: 400;
@@ -154,8 +213,21 @@
       margin: 0;
     }
     .display-style {
-      span:first-child {
-        padding-right: 20px;
+      display: flex;
+
+      i {
+        font-size: 30px;
+        &.active {
+          color: $color-orange;
+        }
+        &:first-child {
+          padding-right: 20px;
+          transform: translate(1px, -3px);
+        }
+        &:last-child {
+          // padding-right: 20px;
+          transform: translate(-3px, -3px) rotate(0.25turn);
+        }
       }
     }
   }
@@ -173,7 +245,9 @@
     .patient-details {
       padding: 13px 8px;
     }
-
+    .hl {
+      background: $color-hl;
+    }
     .patient-header {
       position: relative;
       display: flex;
@@ -197,8 +271,20 @@
       .name {
       }
       .booked {
-        max-width: 75px;
+        position: relative;
+        max-width: 27px;
         text-align: center;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 28px;
+        height: 27px;
+        margin-right: 13px;
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.7);
+        }
       }
     }
 
@@ -206,6 +292,11 @@
       background-color: $color-patient-details-bg;
       padding-top: 20px;
       transition: all 0.4s;
+      height: 116px;
+      overflow: scroll;
+      // .hl {
+      //   background: $color-hl;
+      // }
       .cohorts-wrapper > :first-child,
       .details-wrapper > :first-child {
         text-transform: uppercase;
