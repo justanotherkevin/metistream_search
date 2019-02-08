@@ -7,64 +7,21 @@ export default class SearchPage extends Component {
     super();
     this.state = {
       patientsName: [],
-      searchResults: [
-        {
-          _id: {
-            $oid: '5c5afb29a44b34532227c72b',
-          },
-          type: 'patient',
-          cohorts: [
-            'Administrator',
-            'Officer',
-            'Developer',
-            'Designer',
-            'Designer',
-          ],
-          bookmarked: [],
-          name: 'Blake Gislason',
-          email: 'test@test.test',
-          password: 'test123',
-          details:
-            'Blake Gislason is et ut nisi recusandae possimus dolores corrupti ut vitae. Blake Gislason is fuga mollitia esse provident in ut.',
-          avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/craigrcoles/128.jpg',
-          date: {
-            $date: '2019-02-06T15:20:09.863Z',
-          },
-          __v: 0,
-        },
-        {
-          _id: {
-            $oid: '5c5afb29a44b34532227c72c',
-          },
-          type: 'patient',
-          cohorts: ['Engineer', 'Architect', 'Planner', 'Officer', 'Planner'],
-          bookmarked: [],
-          name: 'Deborah Shanahan',
-          email: 'test@test.test',
-          password: 'test123',
-          details:
-            'Deborah Shanahan is aliquid maiores a ut qui deleniti inventore qui alias exercitationem. Deborah Shanahan is necessitatibus placeat totam.',
-          avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/iamkarna/128.jpg',
-          date: {
-            $date: '2019-02-06T15:20:09.864Z',
-          },
-          __v: 0,
-        },
-      ],
+      searchResults: [],
     };
   }
   componentDidMount() {
     let current = this;
     if (typeof Storage !== 'undefined') {
       // Code for localStorage/sessionStorage.
-      if (sessionStorage.metistream) {
+      if (sessionStorage.patientsName) {
         // save a API
+        console.log('saved an api');
         let patientsName = JSON.parse(sessionStorage.patientsName);
         this.setState({ patientsName });
       } else {
         // call to get all users
+        console.log('called to get all users');
         axios
           .get('/api/users/all')
           .then(function(res) {
@@ -91,10 +48,16 @@ export default class SearchPage extends Component {
         });
     }
   }
+  setSearchResults = array => {
+    this.setState({ searchResults: array });
+  };
   render() {
     return (
       <div className="search-page-wrapper">
-        <SearchForm />
+        <SearchForm
+          patientsName={this.state.patientsName}
+          setSearchResults={this.setSearchResults}
+        />
         {this.state.searchResults && (
           <SearchResults searchResults={this.state.searchResults} />
         )}

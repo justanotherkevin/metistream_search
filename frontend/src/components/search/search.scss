@@ -47,6 +47,7 @@
         font-size: 18px;
       }
       button {
+        transition: all 0.4s;
         max-width: 100px;
         border-top-right-radius: 11px;
         border-bottom-right-radius: 11px;
@@ -54,6 +55,29 @@
           transform: translate(1px, 3px);
         }
         @extend %gradient-background;
+      }
+      button:disabled {
+        opacity: 0.3;
+      }
+      input[type='search']:focus ~ .suggestion {
+        display: block;
+        opacity: 1;
+      }
+      .suggestion {
+        opacity: 0;
+        transition: all 0.8s;
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 66px;
+        z-index: 1;
+        text-align: left;
+        max-height: 200px;
+        overflow: scroll;
+        background-color: $color-tag-bg;
+        ul {
+          list-style: none;
+        }
       }
     }
     .search-option {
